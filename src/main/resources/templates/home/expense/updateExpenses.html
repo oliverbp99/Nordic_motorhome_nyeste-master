@@ -26,6 +26,30 @@
           Rental ID <input type="text" name="rental_id" th:value="${expenses.rental_id}">
         </label>
         <label>
+          Rental start date <input type="text" name="rental_start_date" th:value="${expenses.rental_start_date}">
+        </label>
+        <label>
+          Start time <input type="time" name="start_time" th:value="${expenses.start_time}">
+        </label>
+        <label>
+          KM at start <input type="text" name="km_start" th:value="${expenses.km_start}">
+        </label>
+        <fieldset>
+          <legend style="font-weight: bold">Choose the season</legend>
+          <input type="radio" id="season1" name="season" value="Peak">
+          <label for="season1">Peak-season</label>
+          <input type="radio" id="season2" name="season" value="Middle">
+          <label for="season2">Middle-season</label>
+          <input type="radio" id="season3" name="season" value="Low">
+          <label for="season3">Low-Season</label>
+        </fieldset>
+        <label>
+          Pick up <input type="text" name="pick_up" th:value="${expenses.pick_up}">
+        </label>
+        <label>
+          Km to pick up <input type="text" name="pick_up_extra" th:value="${expenses.pick_up_extra}">
+        </label>
+        <label>
           Enter base cost<input type="text" name="base_cost" th:value="${expenses.base_cost}">
         </label>
         <label>

@@ -20,6 +20,12 @@
   <thead>
   <tr>
     <th>Rental id</th>
+    <th>Rental start date</th>
+    <th>Start time</th>
+    <th>Km start</th>
+    <th>Season</th>
+    <th>Pick up</th>
+    <th>Pick up Extra</th>
     <th>Base Cost</th>
     <th>Rental end date</th>
     <th>Rental end time</th>
@@ -36,6 +42,12 @@
   <tbody>
   <tr th:each="expenses: ${expenses}">
     <td th:text="${expenses.rental_id}"></td>
+    <td th:text="${expenses.rental_start_date}"></td>
+    <td th:text="${expenses.start_time}"></td>
+    <td th:text="${expenses.km_start}"></td>
+    <td th:text="${expenses.season}"></td>
+    <td th:text="${expenses.pick_up}"></td>
+    <td th:text="${expenses.pick_up_extra}"></td>
     <td th:text="${expenses.base_cost}"></td>
     <td th:text="${expenses.rental_end_date}"></td>
     <td th:text="${expenses.end_time}"></td>

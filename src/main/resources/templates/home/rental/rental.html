@@ -29,17 +29,11 @@
         <th>Rental id</th>
         <th>Customer id</th>
         <th>Motorhome id</th>
-        <th>Rental Start date</th>
-        <th>Start time</th>
         <th>Bike Rack</th>
         <th>Bed Linen</th>
         <th>Chairs</th>
         <th>Picnic Table</th>
         <th>Child Seat</th>
-        <th>Km Start</th>
-        <th>Season</th>
-        <th>Pick Up</th>
-        <th>Pick Up Extra</th>
         <th>Different actions</th>
 
     </tr>
@@ -49,17 +43,11 @@
         <td th:text="${rental.rental_id}"></td>
         <td th:text="${rental.customer_id}"></td>
         <td th:text="${rental.motorhome_id}"></td>
-        <td th:text="${rental.rental_start_date}"></td>
-        <td th:text="${rental.start_time}"></td>
         <td th:text="${rental.bike_rack}"></td>
         <td th:text="${rental.bed_linen}"></td>
         <td th:text="${rental.chairs}"></td>
         <td th:text="${rental.picnic_table}"></td>
         <td th:text="${rental.child_seat}"></td>
-        <td th:text="${rental.km_start}"></td>
-        <td th:text="${rental.season}"></td>
-        <td th:text="${rental.pick_up}"></td>
-        <td th:text="${rental.pick_up_extra}"></td>
         <td>
             <a th:href="@{'/deleteRental/'+${rental.rental_id}}">
                 <button>Delete Rental</button>

@@ -18,9 +18,34 @@
 <div class="wrapperCreateExpenses">
     <form action="/createExpenses" method="post">
         <div class="expenseParagraph">
+            <p>The chosen rental ID:</p>
             <span th:text="${rental_id}"/>
             <label>
-                Confirm this rental ID<input type="text" name="rental_id" placeholder="Confirm id..">
+                Confirm the rental ID mentioned above<input type="text" name="rental_id" placeholder="Confirm id..">
+            </label>
+            <label>
+                Enter the rental start date<input type="text" name="rental_start_date" placeholder="Enter rental start date">
+            </label>
+            <label>
+                Enter start time<input type="time" name="start_time" placeholder="Enter start time">
+            </label>
+            <label>
+                Enter the km at start<input type="text" name="km_start" placeholder="Km at start">
+            </label>
+            <fieldset>
+                <legend style="font-weight: bold">Choose the season</legend>
+                <input type="radio" id="season1" name="season" value="Peak">
+                <label for="season1">Peak-season</label>
+                <input type="radio" id="season2" name="season" value="Middle">
+                <label for="season2">Middle-season</label>
+                <input type="radio" id="season3" name="season" value="Low">
+                <label for="season3">Low-Season</label>
+            </fieldset>
+            <label>
+                Enter pick up<input type="text" name="pick_up" placeholder="Pick up..">
+            </label>
+            <label>
+                Enter km to pick up<input type="text" name="pick_up_extra" placeholder="Enter km">
             </label>
             <label>
                 Enter base cost<input type="text" name="base_cost" placeholder="Enter base cost">
@@ -35,7 +60,7 @@
                 Enter drop off<input type="text" name="drop_off" placeholder="enter drop off">
             </label>
             <label>
-                Enter drop off extra<input type="text" name="drop_of_extra" placeholder="Enter drop off extra">
+                Enter km to drop off<input type="text" name="drop_of_extra" placeholder="Enter km">
             </label>
             <label>
                 Enter km end<input type="text" name="km_end" placeholder="Enter km end">
@@ -46,14 +71,13 @@
             <label>
                 Enter fuel level<input type="text" name="fuel_level" placeholder="Enter fuel level">
             </label>
-            <label>
-                Enter full price<input type="text" name="full_price" placeholder="Enter the full price">
-            </label>
+
             <br>
         </div>
         <div class="createExpense">
             <button type="submit" value="Create new expense"> Create new expense</button>
         </div>
+        <br>
 
     </form>
 </div>
