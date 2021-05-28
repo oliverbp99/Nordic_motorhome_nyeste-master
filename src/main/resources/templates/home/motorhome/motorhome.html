@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+<h1 class="customerHeader">Motorhome page</h1>
+<p class="customerParagraph">Here you can see a list of the different motorhomes</p>
+
+<div style = "position:relative; left:45.5%; top:2%;">
+    <a href="/createMotorhome" class="styled-table">
+        <button>Create new Motorhome</button>
+    </a>
+</div>
+<br>
+
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Motorhome ID</th>
+        <th>Brand</th>
+        <th>model</th>
+        <th>type</th>
+        <th>Different actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="motorhome: ${motorhome}">
+        <td th:text="${motorhome.motorhome_id}"></td>
+        <td th:text="${motorhome.brand}"></td>
+        <td th:text="${motorhome.model}"></td>
+        <td th:text="${motorhome.type}"></td>
+
+        <td>
+            <a th:href="@{'/deleteMotorhome/'+${motorhome.motorhome_id}}">
+                <button>Delete Motorhome</button>
+            </a>
+            <a th:href="@{'/updateMotorhome/'+${motorhome.motorhome_id}}">
+                <button>Edit Motorhome</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

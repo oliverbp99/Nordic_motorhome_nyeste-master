@@ -1,0 +1,144 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #423E37;
+}
+li{
+    float: right;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: #EEF5DB;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #F58F29;
+}
+
+.expenseHeader {
+    font-family: sans-serif;
+    text-align: center;
+    color: #F58F29;
+}
+
+.expenseParagraph{
+    font-family: sans-serif;
+    text-align: center;
+    color: #423E37;
+}
+
+.expenseParagraph label{
+    font-family: sans-serif;
+    text-align: center;
+    color: #423E37;
+}
+
+.wrapperCreateExpenses{
+    bottom: 20%;
+    right: 30%;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f3f3f3;
+    text-align: center;
+    border: 2px solid #F58F29;
+    width: 700px;
+    height: auto;
+
+}
+
+.wrapperCreateExpenses label{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+.wrapperCreateExpenses input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+
+.styled-table-expense {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table-expense thead tr{
+    background-color: #F58F29;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table-expense th,
+.styled-table-expense td {
+    padding: 12px 15px;
+}
+
+.styled-table-expense tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table-expense tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table-expense tbody tr:last-of-type {
+    border-bottom: 2px solid #F58F29;
+}
+
+.styled-table-expense tbody tr.active-row {
+    font-weight: bold;
+    color: #F58F29;
+}
+
+.styled-table-expense button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+}
+.styled-table-expense button:hover{
+    color: #f3f3f3;
+    background-color:#F58F29;
+}
+
+.createExpense button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.createExpense button:hover{
+    color: #f3f3f3;
+    background-color:#F58F29;
+}

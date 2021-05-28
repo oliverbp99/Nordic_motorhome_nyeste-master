@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Expenses</title>
+  <link rel="stylesheet" type="text/css" href="/MyCSS.css">
+</head>
+<body>
+<ul>
+  <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+  <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+  <li><a class="dtopbtn" href="/customer">Customers</a></li>
+  <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+</ul>
+
+<h1 class="customerHeader">Update Expenses</h1>
+<p class="customerParagraph">Here is the chosen expense </p>
+<br>
+
+<div class="wrapperExpenses">
+  <div class="wrapperCreateCustomer">
+
+    <form action="/updateExpenses" method="post">
+      <div class="customerParagraph">
+        <label>
+          Rental ID <input type="text" name="rental_id" th:value="${expenses.rental_id}">
+        </label>
+        <label>
+          Enter base cost<input type="text" name="base_cost" th:value="${expenses.base_cost}">
+        </label>
+        <label>
+          Rental end date(yyyy-mm-dd)<input type="text" name="rental_end_date" th:value="${expenses.rental_end_date}">
+        </label>
+        <label>
+          Rental End Time(hh:mm:ss)<input type="time" name="end_time" th:value="${expenses.end_time}">
+        </label>
+        <label>
+          Rental drop off location<input type="text" name="drop_off" th:value="${expenses.drop_off}">
+        </label>
+        <label>
+          Drop off extras<input type="text" name="drop_off_extra" th:value="${expenses.drop_off_extra}">
+        </label>
+        <label>
+          KM on the dashboard<input type="text" name="km_end" th:value="${expenses.km_end}">
+        </label>
+        <label>
+          Repair fee<input type="text" name="repair_fee" th:value="${expenses.repair_fee}">
+        </label>
+        <label>
+          Fuel level<input type="text" name="fuel_level" th:value="${expenses.fuel_level}">
+        </label>
+        <label>
+          Full Price<input type="text" name="full_price" th:value="${expenses.full_price}">
+        </label>
+        <div class="createCustomer">
+          <button type="submit" value="Save expenses">Save expenses</button>
+        </div>
+        <br>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

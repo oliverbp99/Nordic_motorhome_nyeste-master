@@ -1,0 +1,218 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #423E37;
+}
+li{
+    float: right;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: #EEF5DB;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #F58F29;
+}
+
+
+.wrapperCreateRental input[type=text] {
+    width: 25%;
+    transition: width 0.4s ease-in-out;
+    position: relative;
+    display: inline;
+    margin : 0 auto;
+}
+.wrapperCreateRental input[type=text]:focus {
+    border: 3px solid #EEF5DB;
+    width: 40%;
+}
+.wrapperCreateRental input[type=submit] {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+    width: 250px;
+
+}
+
+.wrapperCreateRental input:hover[type=submit] {
+    color: #f3f3f3;
+    background-color:#F58F29;
+}
+.container {
+    position: relative;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+.box {
+    position: absolute;
+    bottom: 20%;
+    right: 30%;
+    top: 5%;
+    left: 10%;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    width: 660px;
+    height: 930px;
+
+}
+.wrapperCreateRental label {
+    color: black;
+    font-family: sans-serif;
+    display: inline-block;
+    width: 150px;
+    margin-left: 30px;
+    text-align: left;
+
+}
+.container h1 {
+    font-family: Bahnschrift, cursive;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr{
+    background-color: #F58F29;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #F58F29;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #F58F29;
+}
+
+.styled-table button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+}
+.styled-table button:hover{
+    color: #f3f3f3;
+    background-color:#F58F29;
+}
+
+.createCustomer button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.createCustomer button:hover{
+    color: #f3f3f3;
+    background-color:#F58F29;
+}
+
+.customerHeader {
+    font-family: sans-serif;
+    text-align: center;
+    color: #F58F29;
+}
+
+.customerParagraph{
+    font-family: sans-serif;
+    text-align: center;
+    color: #423E37;
+}
+
+.customerParagraph label{
+    font-family: sans-serif;
+    text-align: center;
+    color: #423E37;
+}
+
+.wrapperCreateCustomer{
+    bottom: 20%;
+    right: 30%;
+    top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f3f3f3;
+    text-align: center;
+    border: 2px solid #F58F29;
+    width: 700px;
+    height: auto;
+
+}
+
+.wrapperCreateCustomer label{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: right;
+    width: 400px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+.wrapperCreateCustomer input {
+    height: 20px;
+    flex: 0 0 200px;
+    margin-left: 10px;
+}
+
+
+

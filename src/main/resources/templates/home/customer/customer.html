@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+<h1 class="customerHeader">Customer page</h1>
+<p class="customerParagraph">Here you can see a list of customers</p>
+<div style = "position:relative; left:47%; top:2%;">
+    <a href="/createCustomer" class="styled-table">
+        <button>Create new customer</button>
+    </a>
+</div>
+<br>
+
+
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Customer id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Driver license number</th>
+        <th>Address</th>
+        <th>Zip code</th>
+        <th>Different actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer: ${customer}">
+        <td th:text="${customer.customer_id}"></td>
+        <td th:text="${customer.first_name}"></td>
+        <td th:text="${customer.last_name}"></td>
+        <td th:text="${customer.phone_number}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.driver_license_number}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.zip_code}"></td>
+        <td>
+            <a th:href="@{'/deleteCustomer/'+${customer.customer_id}}">
+                <button>Delete customer</button>
+            </a>
+            <a th:href="@{'/updateCustomer/'+${customer.customer_id}}">
+                <button>Edit customer</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

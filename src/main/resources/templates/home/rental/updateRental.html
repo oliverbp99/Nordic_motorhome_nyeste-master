@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link  href="/MyCSS.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+</ul>
+<h1 class="customerHeader">Edit Rental</h1>
+<div class="wrapperCreateCustomer">
+    <form action="/updateRental" method="post">
+        <div class="customerParagraph">
+            <label>
+                Enter new rental id <input type="text" name="rental_id" th:value="${rental.rental_id}">
+            </label>
+            <label>
+                Enter new customer id <input type="text" name="customer_id" th:value="${rental.customer_id}">
+            </label>
+            <label>
+                Enter new motorhome id <input type="text" name="motorhome_id" th:value="${rental.motorhome_id}">
+            </label>
+            <label>
+                Enter new rental start date <input type="text" name="rental_start_date" th:value="${rental.rental_start_date}">
+            </label>
+            <label>
+                Enter new rental time <input type="time" name="start_time" th:value="${rental.start_time}">
+            </label>
+            <label>
+                Enter new amount of bike rack <input type="text" name="bike_rack" th:value="${rental.bike_rack}">
+            </label>
+            <label>
+                Enter new amount of bed linen <input type="text" name="bed_linen" th:value="${rental.bed_linen}">
+            </label>
+            <label>
+                Enter new  amount of chairs<input type="text" name="chairs" th:value="${rental.chairs}">
+            </label>
+            <label>
+                Enter new amount of picnic tables <input type="text" name="picnic_table" th:value="${rental.picnic_table}">
+            </label>
+            <label>
+                Enter new amount of child seats <input type="text" name="child_seat" th:value="${rental.child_seat}">
+            </label>
+            <label>
+                Enter new km start <input type="text" name="km_start" th:value="${rental.km_start}">
+            </label>
+            <label>
+                Enter new season <input type="text" name="season" th:value="${rental.season}">
+            </label>
+            <label>
+                Enter new pick up <input type="text" name="pick_up" th:value="${rental.pick_up}">
+            </label>
+            <label>
+                Enter new pick up extra <input type="text" name="pick_up_extra" th:value="${rental.pick_up_extra}">
+            </label>
+            <div class="createCustomer">
+                <button type="submit" value="Save changes">Save changes</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+</body>
+</html>

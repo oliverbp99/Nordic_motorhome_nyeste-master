@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Nordic Motorhome</title>
+  <link rel="stylesheet" type="text/css" href="/expenseCSS.css">
+</head>
+<body>
+<ul>
+  <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+  <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+  <li><a class="dtopbtn" href="/customer">Customers</a></li>
+  <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+<h1 class="expenseHeader">Expenses</h1>
+<p class="expenseParagraph">Here is the list of Expenses</p>
+
+<table class="styled-table-expense">
+  <thead>
+  <tr>
+    <th>Rental id</th>
+    <th>Base Cost</th>
+    <th>Rental end date</th>
+    <th>Rental end time</th>
+    <th>Drop off</th>
+    <th>Drop off extras</th>
+    <th>KM end</th>
+    <th>Repair fee</th>
+    <th>Fuel level</th>
+    <th>Full Price</th>
+    <th>Different actions</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="expenses: ${expenses}">
+    <td th:text="${expenses.rental_id}"></td>
+    <td th:text="${expenses.base_cost}"></td>
+    <td th:text="${expenses.rental_end_date}"></td>
+    <td th:text="${expenses.end_time}"></td>
+    <td th:text="${expenses.drop_off}"></td>
+    <td th:text="${expenses.drop_off_extra}"></td>
+    <td th:text="${expenses.km_end}"></td>
+    <td th:text="${expenses.repair_fee}"></td>
+    <td th:text="${expenses.fuel_level}"></td>
+    <td th:text="${expenses.full_price}"></td>
+    <td>
+      <a th:href="@{'/updateExpenses/'+${expenses.rental_id}}">
+        <button>Edit Expenses</button>
+      </a>
+    </td>
+  </tbody>
+</table>
+</body>
+</html>
+
+
+

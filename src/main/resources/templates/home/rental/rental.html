@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+<h1 class="customerHeader">Create Rental</h1>
+<p class="customerParagraph">Here is the list of Rentals</p>
+
+<div style = "position:relative; left:47.2%; top:2%;">
+    <a href="/createRental" class="styled-table">
+        <button>Create new rental</button>
+    </a>
+</div>
+<br>
+
+<table class="styled-table">
+    <thead>
+    <tr>
+        <th>Rental id</th>
+        <th>Customer id</th>
+        <th>Motorhome id</th>
+        <th>Rental Start date</th>
+        <th>Start time</th>
+        <th>Bike Rack</th>
+        <th>Bed Linen</th>
+        <th>Chairs</th>
+        <th>Picnic Table</th>
+        <th>Child Seat</th>
+        <th>Km Start</th>
+        <th>Season</th>
+        <th>Pick Up</th>
+        <th>Pick Up Extra</th>
+        <th>Different actions</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rental: ${rental}">
+        <td th:text="${rental.rental_id}"></td>
+        <td th:text="${rental.customer_id}"></td>
+        <td th:text="${rental.motorhome_id}"></td>
+        <td th:text="${rental.rental_start_date}"></td>
+        <td th:text="${rental.start_time}"></td>
+        <td th:text="${rental.bike_rack}"></td>
+        <td th:text="${rental.bed_linen}"></td>
+        <td th:text="${rental.chairs}"></td>
+        <td th:text="${rental.picnic_table}"></td>
+        <td th:text="${rental.child_seat}"></td>
+        <td th:text="${rental.km_start}"></td>
+        <td th:text="${rental.season}"></td>
+        <td th:text="${rental.pick_up}"></td>
+        <td th:text="${rental.pick_up_extra}"></td>
+        <td>
+            <a th:href="@{'/deleteRental/'+${rental.rental_id}}">
+                <button>Delete Rental</button>
+            </a>
+            <a th:href="@{'/updateRental/'+${rental.rental_id}}">
+                <button>Edit Rental</button>
+            </a>
+            <br>
+            <a th:href="@{'/expenses/'+${rental.rental_id}}">
+                <button>Expenses</button>
+            </a>
+            <a th:href="@{'/createExpenses/'+${rental.rental_id}}">
+                <button> Create Expense </button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+

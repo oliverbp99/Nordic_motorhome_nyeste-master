@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link  href="/MyCSS.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+</ul>
+<h1 class="customerHeader">Edit Motorhome</h1>
+<div class="wrapperCreateCustomer">
+    <form action="/updateMotorhome" method="post">
+        <div class="customerParagraph">
+            <label>
+                Enter new motorhome ID <input type="text" name="motorhome_id" th:value="${motorhome.motorhome_id}">
+            </label>
+            <label>
+                Enter new brand <input type="text" name="brand" th:value="${motorhome.brand}">
+            </label>
+            <label>
+                Enter new model <input type="text" name="model" th:value="${motorhome.model}">
+            </label>
+            <label>
+                Enter new type <input type="text" name="type" th:value="${motorhome.type}">
+            </label>
+            <div class="createCustomer">
+                <button type="submit" value="Save changes">Save changes</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+</body>
+</html>

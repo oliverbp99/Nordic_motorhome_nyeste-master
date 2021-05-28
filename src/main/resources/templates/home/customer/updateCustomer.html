@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link  href="/MyCSS.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="#">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="#">Rentals</a></li>
+</ul>
+<h1 class="customerHeader">Edit customer</h1>
+<div class="wrapperCreateCustomer">
+    <form action="/updateCustomer" method="post">
+        <div class="customerParagraph">
+            <label>
+                Enter new customer ID <input type="text" name="customer_id" th:value="${customer.customer_id}">
+            </label>
+            <label>
+                Enter new First name<input type="text" name="first_name" th:value="${customer.first_name}">
+            </label>
+            <label>
+                Enter new Last name<input type="text" name="last_name" th:value="${customer.last_name}">
+            </label>
+            <label>
+                Enter new Phone number<input type="text" name="phone_number" th:value="${customer.phone_number}">
+            </label>
+            <label>
+                Enter new email<input type="text" name="email" th:value="${customer.email}">
+            </label>
+            <label>
+                Enter new Driver license number<input type="text" name="driver_license_number" th:value="${customer.driver_license_number}">
+            </label>
+            <label>
+                Enter new address<input type="text" name="address" th:value="${customer.address}">
+            </label>
+            <label>
+                Enter new Zip code<input type="text" name="zip_code" th:value="${customer.zip_code}">
+            </label>
+            <div class="createCustomer">
+                <button type="submit" value="Save changes">Save changes</button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="/expenseCSS.css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+
+<h1 class="expenseHeader">Create New expense</h1>
+<div class="wrapperCreateExpenses">
+    <form action="/createExpenses" method="post">
+        <div class="expenseParagraph">
+            <span th:text="${rental_id}"/>
+            <label>
+                Confirm this rental ID<input type="text" name="rental_id" placeholder="Confirm id..">
+            </label>
+            <label>
+                Enter base cost<input type="text" name="base_cost" placeholder="Enter base cost">
+            </label>
+            <label>
+                Enter rental end date<input type="text" name="rental_end_date" placeholder="Enter rental end date">
+            </label>
+            <label>
+                Enter end time<input type="time" name="end_time" placeholder="Enter end time">
+            </label>
+            <label>
+                Enter drop off<input type="text" name="drop_off" placeholder="enter drop off">
+            </label>
+            <label>
+                Enter drop off extra<input type="text" name="drop_of_extra" placeholder="Enter drop off extra">
+            </label>
+            <label>
+                Enter km end<input type="text" name="km_end" placeholder="Enter km end">
+            </label>
+            <label>
+                Enter repair fee<input type="text" name="repair_fee" placeholder="Enter repair fee">
+            </label>
+            <label>
+                Enter fuel level<input type="text" name="fuel_level" placeholder="Enter fuel level">
+            </label>
+            <label>
+                Enter full price<input type="text" name="full_price" placeholder="Enter the full price">
+            </label>
+            <br>
+        </div>
+        <div class="createExpense">
+            <button type="submit" value="Create new expense"> Create new expense</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nordic Motorhome</title>
+    <link rel="stylesheet" type="text/css" href="MyCSS.css">
+</head>
+<body>
+<ul>
+    <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
+    <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
+    <li><a class="dtopbtn" href="/customer">Customers</a></li>
+    <li><a class="dtopbtn" href="/rental">Rentals</a></li>
+
+</ul>
+
+<h1 class="customerHeader">Create New Motorhome</h1>
+<div class="wrapperCreateCustomer">
+    <form action="/createMotorhome" method="post">
+        <div class="customerParagraph">
+
+            <label>
+                Enter brand<input type="text" name="brand" placeholder="Enter brand">
+            </label>
+            <label>
+                Enter model<input type="text" name="model" placeholder="Enter model">
+            </label>
+            <label>
+                Enter motorhome type<input type="text" name="type" placeholder="Enter type">
+            </label>
+
+            <div class="createCustomer">
+                <button type="submit" value="Create new Motorhome">Add motorhome</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

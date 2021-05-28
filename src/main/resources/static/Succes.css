@@ -1,0 +1,43 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #423E37;
+}
+li{
+    float: right;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: #EEF5DB;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #F58F29;
+}
+.completed {
+    text-align: center;
+    margin: auto;
+}
+.text button {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #F58F29;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#F58F29;
+    text-align:center;
+    transition: all 0.2s;
+    font-size: 22px;
+}
+.text button:hover {
+    color: #f3f3f3;
+    background-color:#F58F29;
+}
