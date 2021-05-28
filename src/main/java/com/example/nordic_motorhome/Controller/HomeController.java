@@ -9,6 +9,7 @@ import com.example.nordic_motorhome.Service.ExpensesService;
 import com.example.nordic_motorhome.Service.MotorhomeService;
 import com.example.nordic_motorhome.Service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +44,12 @@ public class HomeController {
 
     @GetMapping("/expenses/{rental_id}")
     public String expenses(@PathVariable("rental_id") int rental_id, Model model) {
-        model.addAttribute("expenses", expensesService.findExpensesById(rental_id));
-        return "home/expense/expenses";
+       try {
+           model.addAttribute("expenses", expensesService.findExpensesById(rental_id));
+           return "home/expense/expenses";
+       }catch (EmptyResultDataAccessException e){
+           return "home/expense/noData";
+       }
     }
 
     @GetMapping("/motorhome")
