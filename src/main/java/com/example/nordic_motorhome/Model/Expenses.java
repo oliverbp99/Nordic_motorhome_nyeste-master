@@ -59,6 +59,16 @@ public class Expenses extends Rental{
         this.fuel_level = fuel_level;
         this.full_price = full_price;
     }
+    public Expenses(int rental_id, String rental_start_date, String start_time, int km_start, String season, String pick_up, int pick_up_extra, int base_cost, String rental_end_date, int drop_off_extra, int km_end, int repair_fee, float fuel_level, double full_price) {
+        super(rental_id, rental_start_date, start_time, km_start, season, pick_up, pick_up_extra);
+        this.base_cost = base_cost;
+        this.rental_end_date = rental_end_date;
+        this.drop_off_extra = drop_off_extra;
+        this.km_end = km_end;
+        this.repair_fee = repair_fee;
+        this.fuel_level = fuel_level;
+        this.full_price = full_price;
+    }
 
     public Expenses(){
 
@@ -129,32 +139,6 @@ public class Expenses extends Rental{
     }
 
     public double getFull_price(){
-       /* double full_price;
-        double x = base_cost;
-        double z = drop_off_extra / 0.7;
-        double f = pick_up_extra / 0.7;
-        x = x + f + z; //642
-
-        LocalDate localDate1 = LocalDate.parse(rental_start_date);
-        LocalDate localDate2 = LocalDate.parse(rental_end_date);
-        long noOfDaysDifference = ChronoUnit.DAYS.between(localDate1, localDate2);
-
-        int kmDif = km_start - km_end;
-        int maxKm = (int) (kmDif / noOfDaysDifference);
-        if(maxKm > 400) {
-            x = x + maxKm - 400;
-        }
-        x = x + repair_fee;
-
-        if(fuel_level <= 0.5) {
-            x = x + 70;
-        }
-        if (season.equals("middle")) {
-            x *= 1.30;
-        } else if (season.equals("peak")) {
-            x = x * 1.6;
-        }
-        full_price = x; */
         return full_price;
     }
 

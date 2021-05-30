@@ -37,6 +37,18 @@ public class Rental {
         this.pick_up = pick_up;
         this.pick_up_extra = pick_up_extra;
     }
+    public Rental(int rental_id, int customer_id, int motorhome_id, int bike_rack, int bed_linen, int chairs, int picnic_table, int child_seat, String pick) {
+
+    }
+    public Rental(int rental_id,String rental_start_date, String start_time, int km_start, String season, String pick_up, int pick_up_extra) {
+        this.rental_id = rental_id;
+        this.rental_start_date = rental_start_date;
+        this.start_time = start_time;
+        this.km_start = km_start;
+        this.season = season;
+        this.pick_up = pick_up;
+        this.pick_up_extra = pick_up_extra;
+    }
 
     public Rental() {
 
