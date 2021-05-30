@@ -2,6 +2,7 @@ package com.example.nordic_motorhome.Model;
 
 import javax.persistence.Id;
 
+//Her oprettes Constructor for Customer-Objektet, med Private fields
 public class Customer {
     @Id
     private int customer_id;
@@ -27,9 +28,12 @@ public class Customer {
         this.driver_license_number = driver_license_number;
     }
 
+    //Tom constructor, til at skabe en ny instans af customer-objektet uden fields
     public Customer(){
 
     }
+
+    //Getters & Setters for alle fields i Customer-klassen
 
     public int getCustomer_id() {
         return customer_id;

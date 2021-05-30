@@ -14,9 +14,9 @@ public class ExpensesService {
     @Autowired
     ExpensesRepo expensesRepo;
 
-    public List<Expenses> showExpenses(){
+   /* public List<Expenses> showExpenses(){
         return expensesRepo.showExpenses();
-    }
+    }*/
 
     public Expenses createExpenses(Expenses e) {
         return expensesRepo.createExpenses(e);
