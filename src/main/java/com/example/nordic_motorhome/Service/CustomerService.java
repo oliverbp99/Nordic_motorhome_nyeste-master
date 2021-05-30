@@ -7,11 +7,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+//@Service fortæller at customerService er service layer og enabler dependency spring basic application
+//service implementerer metoderne fra Repository
 @Service
 public class CustomerService {
+    //autowired bruger man i stedet for hele tiden at skulle instantiere et objekt i hver klasse, da autowire vil gøre det for os.
+    //den gør at man kan bruge objektet i customerRepo
     @Autowired
     CustomerRepo customerRepo;
 
+    //bruger personRepo til at anvende de forskellige metoder
     public List<Customer> showCustomer(){
         return customerRepo.showCustomer();
     }

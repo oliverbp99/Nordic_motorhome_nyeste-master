@@ -188,7 +188,8 @@ public class HomeController {
     @PostMapping("/updateExpenses")
     public String updateExpenses(@ModelAttribute Expenses expenses) {
         expensesService.updateExpenses(expenses.getRental_id(), expenses);
-        return "home/expense/succesExpense";
+
+        return "home/expense/editedExpenses";
     }
 
     @GetMapping("/updateMotorhome/{motorhome_id}")

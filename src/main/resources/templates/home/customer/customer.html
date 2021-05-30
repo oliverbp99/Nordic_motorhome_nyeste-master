@@ -22,7 +22,7 @@
 </div>
 <br>
 
-
+<!-- vi gør brug af thymeleaf til at vise dataen fra databasen-->
 <table class="styled-table">
     <thead>
     <tr>
@@ -48,6 +48,7 @@
         <td th:text="${customer.address}"></td>
         <td th:text="${customer.zip_code}"></td>
         <td>
+            <!-- disse to er knapper, som tager customer_id med, og href fører os hen til bl.a. deleteCustomer eller updateCustomer siden -->
             <a th:href="@{'/deleteCustomer/'+${customer.customer_id}}">
                 <button>Delete customer</button>
             </a>

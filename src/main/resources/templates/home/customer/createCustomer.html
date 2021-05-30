@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Nordic Motorhome</title>
+    <!-- link definerer relationen mellem det nuværende document med en ekstern resource
+    type specificerer internet media typen
+    href er et link, som referrer til vores MyCSS fil-->
     <link rel="stylesheet" type="text/css" href="MyCSS.css">
 </head>
 <body>
+    <!-- ul tagget bruges til at lave en "bulleted list"
+   class bruges til a specificere en klasse for et html element. dtopbtn bruges til at lave et bulleted list, som hreffen
+   sender brugeren til de forskellige websider afhængig af hvilekn knap man trykker på -->
 <ul>
     <p style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold"><a href="/" style="color: wheat; text-align: left; float: left; padding-left: 10px; font-weight: bold">Welcome to Nordic Motorhome</a></p>
     <li><a class="dtopbtn" href="/motorhome">Motorhomes</a></li>
@@ -16,8 +22,10 @@
 
 <h1 class="customerHeader">Create New customer</h1>
 <div class="wrapperCreateCustomer">
+    <!-- "method" fortæller hvordan form-data skal sendes til en side som er specificeret i "action", altså createCustomer siden. -->
     <form action="/createCustomer" method="post">
         <div class="customerParagraph">
+            <!-- nedenstående gør vi brug af input type "text" hvor name er det field, som vi ønsker at redigere i, og placeholderen er den tekst, som står i tekstfeltet -->
             <label>
                 Enter first name<input type="text" name="first_name" placeholder="First name">
             </label>
@@ -40,6 +48,7 @@
                 Enter zip code<input type="text" name="zip_code" placeholder="Zip code">
             </label>
             <div class="createCustomer">
+                <!-- button er en knap, hvor vi kan specificere "value" af knappen -->
                 <button type="submit" value="Create new customer">Create new customer</button>
             </div>
         </div>

@@ -29,6 +29,7 @@ public class Customer {
     }
 
     //Tom constructor, til at skabe en ny instans af customer-objektet uden fields
+    //spring kræver en tom constructor
     public Customer(){
 
     }

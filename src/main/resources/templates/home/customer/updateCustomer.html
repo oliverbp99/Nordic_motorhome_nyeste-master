@@ -16,6 +16,9 @@
 <div class="wrapperCreateCustomer">
     <form action="/updateCustomer" method="post">
         <div class="customerParagraph">
+            <!--
+            Her gør vi brug af thymeleaf til at indsætte værdier i de forskellige fields i customer tabellen
+            -->
             <label>
                 Enter new customer ID <input type="text" name="customer_id" th:value="${customer.customer_id}">
             </label>
