@@ -187,6 +187,29 @@ public class HomeController {
 
     @PostMapping("/updateExpenses")
     public String updateExpenses(@ModelAttribute Expenses expenses) {
+        double x = expenses.getBase_cost();
+        double f = expenses.getPick_up_extra();
+        double z = expenses.getDrop_off_extra();
+
+        LocalDate localDate1 = LocalDate.parse(expenses.getRental_start_date());
+        LocalDate localDate2 = LocalDate.parse(expenses.getRental_end_date());
+        long noOfDaysDifference = ChronoUnit.DAYS.between(localDate1, localDate2);
+
+        int kmDif = expenses.getKm_end() - expenses.getKm_start();
+        int maxKm = (int) (kmDif / noOfDaysDifference);
+        if(maxKm > 400) {
+            x += maxKm - 400;
+        }
+        x = x + expenses.getRepair_fee();
+        if(expenses.getFuel_level() <= 0.5) {
+            x = x + 70;
+        }
+        if (expenses.getSeason().equals("Middle")) {
+            x *= 1.30;
+        } else if (expenses.getSeason().equals("Peak")) {
+            x = x * 1.6;
+        }
+        expenses.setFull_price(x);
         expensesService.updateExpenses(expenses.getRental_id(), expenses);
 
         return "home/expense/editedExpenses";

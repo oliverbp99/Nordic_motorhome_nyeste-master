@@ -18,15 +18,20 @@ public class CustomerRepo {
     //nedenstående metode tager listen af customers fra databasen, og får fremvist en kunde.
     public List<Customer> showCustomer(){
         String sql = "SELECT * FROM customer";
-        //BeanPropertyRowMapper bruger customer klassen, og anvender constructoreren i den til at instantiere et objekt, og propper den i en liste
-        //rowmapperen tager listen og hvis de peger på samme objekt, så vil customer objektet blive vist.
+        //BeanPropertyRowMapper bruger customer klassen, og anvender constructoreren i den til at instantiere et objekt, og indsætter den i en liste
+        //rowmapperen tager listen fra og hvis de peger på samme instans af objektet, så vil customer objektet blive vist.
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        //jdbctemplate bruges til at connecte til databasen og execute SQL queries
+        //vores template tager sql og rowmapperen med som parametre, og eksekverer querien, som returnerer de fundene instanser af objektet.
         return template.query(sql, rowMapper);
     }
     //her bliver der indsat diverse fields og disse informationer bliver gemt i databasen (customer tabellen)
     public Customer createCustomer(Customer c){
+        //her bliver der indsat diverse fields og disse informationer bliver gemt i databasen (customer tabellen)
+        //inputtet fra keyboarded vil erstatte "?" og indsætte de indtastede informationer ind på de nedenstående fields.
         String sql = "INSERT INTO customer (customer_id, first_name, last_name, phone_number, email, driver_license_number, address, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         template.update(sql, c.getCustomer_id(), c.getFirst_name(), c.getLast_name(), c.getPhone_number(), c.getEmail(), c.getDriver_license_number(), c.getAddress(), c.getZip_code());
+        //returnerer null, da objektet ikke bliver vist, men blot eksekveret
         return null;
     }
     //man bruger customer_id til at få slettet den kunde i databasen, som har det samme customer_id
@@ -42,10 +47,13 @@ public class CustomerRepo {
         template.update(sql, c.getFirst_name(), c.getLast_name(), c.getPhone_number(), c.getEmail(), c.getDriver_license_number(), c.getAddress(), c.getZip_code(), c.getCustomer_id());
         return null;
     }
-
+    //Der bliver eksekveret et SQL query hvor man gør brug af customer_Id til at finde frem til den korrekte customer, med tilhørende id.
+    //Der sker meget af det samme som i showCustomer, men forskellen er at showCustomer metoden får alle customers, hvori
+    //findCustomerById kun får fremvist den customer med det specifikke customer_id
     public Customer findCustomerById(int customer_id){
         String sql = "SELECT * FROM customer WHERE customer_id = ?";
         RowMapper<Customer> rowMapper = new BeanPropertyRowMapper<>(Customer.class);
+        //de fundene data vil blive indsat til customer objektet/"c" og herefter vil objektet blive returneret
         Customer c = template.queryForObject(sql, rowMapper, customer_id);
         return c;
     }
