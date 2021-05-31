@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -24,8 +25,8 @@ import java.util.List;
 //Her fortæller vi programmet at vi definerer vores Controller her, ved brug af @Controller annotationen.
 @Controller
 public class HomeController {
-    //Autowired annotationen sørger for at skabe forbindelse mellem de forskellige klasser, og så man kan hente date på de objekter.
-    //Med Autowired slipper man for at oprette et nyt objekt af en klasse hver gang, og det muliggøre at man kan kalde på de metoder, tilhørende klassen, eg. expensesService.findExpensesById.
+    //Autowired annotationen sørger for at skabe forbindelse mellem de forskellige klasser, og så man kan bruge objekter fra de andre klasser.
+    //Med Autowired slipper man for at oprette et nyt objekt af en klasse hver gang, og det muliggører at man kan kalde på de metoder, tilhørende klassen, eg. expensesService.findExpensesById.
     @Autowired
     CustomerService customerService;
     @Autowired
@@ -46,9 +47,8 @@ public class HomeController {
         model.addAttribute("customer", customerList);
         return "home/customer/customer";
     }
-
-    //GetMapping tager kun fat i en metode, i dette tilfælde findExpensesById.
-    //I denne GetMapping metode bruges der en PathVariable til at tage fat i værdien "rental_id" og propper den ned i en variable, så den kaldes i metoden.
+    //GetMapping tager fat i URL requesten
+    //I denne GetMapping metode bruges der en PathVariable til at tage fat i værdien "rental_id" og indsætter den ned i en variable, så den kan kaldes i metoden.
     @GetMapping("/expenses/{rental_id}")
     public String expenses(@PathVariable("rental_id") int rental_id, Model model) {
        try {
@@ -73,12 +73,12 @@ public class HomeController {
         return "home/rental/rental";
     }
 
-    //@ModelAttribute tager imod værdierne fra databasen, og opretter et Customer objekt via en @PostMapping, dvs. den tager informationer fra hele Customer klassen.
     @GetMapping("/createCustomer")
     public String createCustomer() {
         return "home/customer/createCustomer";
     }
 
+    //@ModelAttribute tager imod værdierne fra databasen, og opretter et Customer objekt via en @PostMapping, dvs. den tager informationer fra hele Customer klassen.
     @PostMapping("/createCustomer")
     public String createCustomer(@ModelAttribute Customer customer) {
         customerService.createCustomer(customer);
@@ -94,8 +94,9 @@ public class HomeController {
     @PostMapping("/createExpenses")
     public String createExpenses(@ModelAttribute Expenses expenses){
         double x = expenses.getBase_cost();
-        double f = expenses.getPick_up_extra();
-        double z = expenses.getDrop_off_extra();
+        double z = expenses.getDrop_off_extra() / 0.7;
+        double f = expenses.getPick_up_extra() / 0.7;
+        x = x + f + z;
 
         LocalDate localDate1 = LocalDate.parse(expenses.getRental_start_date());
         LocalDate localDate2 = LocalDate.parse(expenses.getRental_end_date());
@@ -110,9 +111,9 @@ public class HomeController {
         if(expenses.getFuel_level() <= 0.5) {
             x = x + 70;
         }
-        if (expenses.getSeason().equals("Middle")) {
+        if (expenses.getSeason().equalsIgnoreCase("Middle")) {
             x *= 1.30;
-        } else if (expenses.getSeason().equals("Peak")) {
+        } else if (expenses.getSeason().equalsIgnoreCase("Peak")) {
             x = x * 1.6;
         }
         expenses.setFull_price(x);
@@ -194,8 +195,9 @@ public class HomeController {
     @PostMapping("/updateExpenses")
     public String updateExpenses(@ModelAttribute Expenses expenses) {
         double x = expenses.getBase_cost();
-        double f = expenses.getPick_up_extra();
-        double z = expenses.getDrop_off_extra();
+        double z = expenses.getDrop_off_extra() / 0.7;
+        double f = expenses.getPick_up_extra() / 0.7;
+        x = x + f + z;
 
         LocalDate localDate1 = LocalDate.parse(expenses.getRental_start_date());
         LocalDate localDate2 = LocalDate.parse(expenses.getRental_end_date());
@@ -210,9 +212,9 @@ public class HomeController {
         if(expenses.getFuel_level() <= 0.5) {
             x = x + 70;
         }
-        if (expenses.getSeason().equals("Middle")) {
+        if (expenses.getSeason().equalsIgnoreCase("Middle")) {
             x *= 1.30;
-        } else if (expenses.getSeason().equals("Peak")) {
+        } else if (expenses.getSeason().equalsIgnoreCase("Peak")) {
             x = x * 1.6;
         }
         expenses.setFull_price(x);
