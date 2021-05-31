@@ -21,8 +21,11 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
+//Her fortæller vi programmet at vi definerer vores Controller her, ved brug af @Controller annotationen.
 @Controller
 public class HomeController {
+    //Autowired annotationen sørger for at skabe forbindelse mellem de forskellige klasser, og så man kan hente date på de objekter.
+    //Med Autowired slipper man for at oprette et nyt objekt af en klasse hver gang, og det muliggøre at man kan kalde på de metoder, tilhørende klassen, eg. expensesService.findExpensesById.
     @Autowired
     CustomerService customerService;
     @Autowired
@@ -44,6 +47,8 @@ public class HomeController {
         return "home/customer/customer";
     }
 
+    //GetMapping tager kun fat i en metode, i dette tilfælde findExpensesById.
+    //I denne GetMapping metode bruges der en PathVariable til at tage fat i værdien "rental_id" og propper den ned i en variable, så den kaldes i metoden.
     @GetMapping("/expenses/{rental_id}")
     public String expenses(@PathVariable("rental_id") int rental_id, Model model) {
        try {
@@ -68,6 +73,7 @@ public class HomeController {
         return "home/rental/rental";
     }
 
+    //@ModelAttribute tager imod værdierne fra databasen, og opretter et Customer objekt via en @PostMapping, dvs. den tager informationer fra hele Customer klassen.
     @GetMapping("/createCustomer")
     public String createCustomer() {
         return "home/customer/createCustomer";
