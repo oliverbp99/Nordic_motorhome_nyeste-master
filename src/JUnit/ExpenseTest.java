@@ -48,6 +48,6 @@ public class ExpenseTest {
             x = x * 1.6;
         }
         full_price = x;
-        assertEquals(965.7142857142858, full_price);
+        assertEquals(965, full_price);
     }
 }

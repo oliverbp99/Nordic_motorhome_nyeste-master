@@ -41,6 +41,26 @@ public class HomeController {
         return "home/index";
     }
 
+    @GetMapping("/compactMotorhome")
+    public String compactMotorhome(){
+        return "home/moreinfo/compactMotorhome";
+    }
+
+    @GetMapping("/familyMotorhome")
+    public String familyMotorhome(){
+        return "home/moreinfo/familyMotorhome";
+    }
+
+    @GetMapping("/premiumMotorhome")
+    public String premiumMotorhome(){
+        return "home/moreinfo/premiumMotorhome";
+    }
+
+    @GetMapping("/urbanMotorhome")
+    public String urbanMotorhome(){
+        return "home/moreinfo/urbanMotorhome";
+    }
+
     @GetMapping("/customer")
     public String customer(Model model) {
         List<Customer> customerList = customerService.showCustomer();
