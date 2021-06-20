@@ -208,39 +208,47 @@ public class HomeController {
 
     @GetMapping("/updateExpenses/{rental_id}")
     public String updateEP(@PathVariable("rental_id") int rental_id, Model model) {
-        model.addAttribute("expenses", expensesService.findExpensesById(rental_id));
-        return "home/expense/updateExpenses";
+        try {
+            model.addAttribute("expenses", expensesService.findExpensesById(rental_id));
+            return "home/expense/updateExpenses";
+        } catch (NullPointerException e){
+            return "home/expense/missingInput";
+        }
     }
 
     @PostMapping("/updateExpenses")
     public String updateExpenses(@ModelAttribute Expenses expenses) {
-        double x = expenses.getBase_cost();
-        double z = expenses.getDrop_off_extra() / 0.7;
-        double f = expenses.getPick_up_extra() / 0.7;
-        x = x + f + z;
+        try {
+            double x = expenses.getBase_cost();
+            double z = expenses.getDrop_off_extra() / 0.7;
+            double f = expenses.getPick_up_extra() / 0.7;
+            x = x + f + z;
 
-        LocalDate localDate1 = LocalDate.parse(expenses.getRental_start_date());
-        LocalDate localDate2 = LocalDate.parse(expenses.getRental_end_date());
-        long noOfDaysDifference = ChronoUnit.DAYS.between(localDate1, localDate2);
+            LocalDate localDate1 = LocalDate.parse(expenses.getRental_start_date());
+            LocalDate localDate2 = LocalDate.parse(expenses.getRental_end_date());
+            long noOfDaysDifference = ChronoUnit.DAYS.between(localDate1, localDate2);
 
-        int kmDif = expenses.getKm_end() - expenses.getKm_start();
-        int maxKm = (int) (kmDif / noOfDaysDifference);
-        if(maxKm > 400) {
-            x += maxKm - 400;
-        }
-        x = x + expenses.getRepair_fee();
-        if(expenses.getFuel_level() <= 0.5) {
-            x = x + 70;
-        }
-        if (expenses.getSeason().equalsIgnoreCase("Middle")) {
-            x *= 1.30;
-        } else if (expenses.getSeason().equalsIgnoreCase("Peak")) {
-            x = x * 1.6;
-        }
-        expenses.setFull_price(x);
-        expensesService.updateExpenses(expenses.getRental_id(), expenses);
+            int kmDif = expenses.getKm_end() - expenses.getKm_start();
+            int maxKm = (int) (kmDif / noOfDaysDifference);
+            if (maxKm > 400) {
+                x += maxKm - 400;
+            }
+            x = x + expenses.getRepair_fee();
+            if (expenses.getFuel_level() <= 0.5) {
+                x = x + 70;
+            }
+            if (expenses.getSeason().equalsIgnoreCase("Middle")) {
+                x *= 1.30;
+            } else if (expenses.getSeason().equalsIgnoreCase("Peak")) {
+                x = x * 1.6;
+            }
+            expenses.setFull_price(x);
+            expensesService.updateExpenses(expenses.getRental_id(), expenses);
 
-        return "home/expense/editedExpenses";
+            return "home/expense/editedExpenses";
+        } catch(NullPointerException e){
+            return "home/expense/missingInput";
+        }
     }
 
     @GetMapping("/updateMotorhome/{motorhome_id}")
