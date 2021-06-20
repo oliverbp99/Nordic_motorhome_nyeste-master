@@ -214,35 +214,9 @@ li a:hover, .dropdown:hover .dropbtn {
     margin-left: 10px;
 }
 
-/* Her danner vi regler for Image Mouse Over-overlay effekten (More Info) */
-.textfade div {
-    position: relative;
-    width: 50%;
-}
-
-.middle div{
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-
-.textfade div:hover .image {
-    opacity: 0.3;
-}
-
-.textfade div:hover .middle {
-    opacity: 1;
-}
-
-.text div {
+.text {
     background-color: #FFC999;
     color: white;
     font-size: 16px;
-    padding: 16px 32px;
+    padding: 10px 14px;
 }
