@@ -9,6 +9,7 @@ import com.example.nordic_motorhome.Service.ExpensesService;
 import com.example.nordic_motorhome.Service.MotorhomeService;
 import com.example.nordic_motorhome.Service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

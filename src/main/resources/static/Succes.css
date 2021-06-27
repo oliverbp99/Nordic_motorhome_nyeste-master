@@ -26,7 +26,8 @@ li a:hover, .dropdown:hover .dropbtn {
     display:block;
     padding:0.35em 1.2em;
     border:0.1em solid #F58F29;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
