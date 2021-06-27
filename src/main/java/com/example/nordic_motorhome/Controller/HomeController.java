@@ -143,7 +143,7 @@ public class HomeController {
         return "home/expense/succesExpense";
 
         }catch(DataIntegrityViolationException e){
-            return "home/expense/noData";
+            return "home/expense/wrongID";
         }
     }
 
