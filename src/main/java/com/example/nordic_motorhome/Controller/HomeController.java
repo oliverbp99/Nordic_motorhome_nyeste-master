@@ -114,6 +114,7 @@ public class HomeController {
 
     @PostMapping("/createExpenses")
     public String createExpenses(@ModelAttribute Expenses expenses){
+        try{
         double x = expenses.getBase_cost();
         double z = expenses.getDrop_off_extra() / 0.7;
         double f = expenses.getPick_up_extra() / 0.7;
@@ -140,6 +141,10 @@ public class HomeController {
         expenses.setFull_price(x);
         expensesService.createExpenses(expenses);
         return "home/expense/succesExpense";
+
+        }catch(DataIntegrityViolationException e){
+            return "home/expense/noData";
+        }
     }
 
     @GetMapping("/createMotorhome")
@@ -161,8 +166,12 @@ public class HomeController {
 
     @PostMapping("/createRental")
     public String createRental(@ModelAttribute Rental rental) {
-        rentalService.createRental(rental);
-        return "home/rental/succesRental";
+        try {
+            rentalService.createRental(rental);
+            return "home/rental/succesRental";
+        }catch(DataIntegrityViolationException e){
+            return "home/rental/noRental";
+        }
     }
 
     @GetMapping("/deleteCustomer/{customer_id}")
