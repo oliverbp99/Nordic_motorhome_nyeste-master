@@ -37,7 +37,6 @@ li a:hover, .dropdown:hover .dropbtn {
     text-align:center;
     transition: all 0.2s;
     font-size: 22px;
-    position: absolute;
 }
 .text button:hover {
     color: #f3f3f3;
